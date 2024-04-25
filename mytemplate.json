@@ -1,0 +1,430 @@
+{
+    "Config": {
+        "MAX_HP":               12,
+        "MAX_STRESS":           12,
+        "MAX_ARMOR_SLOTS":      12,
+        "MAX_PROFICENCY":       5,
+        "MAX_FEAR":             6,
+        "MAX_HOPE":             6,
+        "MAX_CARDS_IN_HAND":    5,
+        "MAX_CARDS_IN_VAULT":   100,
+        "MAX_GOLD_COINS":       10,
+        "MAX_GOLD_HANDFULLS":   10,
+        "MAX_GOLD_BAGS":        10,
+        "MAX_GOLD_CHESTS":      1,
+        
+        "CLASS_ENUM":           {UNKNOWN, BARD, DRUID, GUARDIAN, RANGER, SERAPH, ROGUE, SORCERER, WARRIOR, WIZARD},
+        "SUBCLASS_ENUM":        {/*Not doing for now*/},
+        "ANCESTERIES_ENUM":     {UNKNOWN, CLANK, DAEMON, DRAKONA, DWARF, ELF, FAERIE, FAUN, FIRBOLG, FUNGRIL, GALAPA, GIANT, GOBLIN, HALFLING, HUMAN, KATARI, ORC, RIBBET, SIMIAH},
+        "DOMAIN_ENUM":          {UNKNOWN, ARCANA, BLADE, BONE, CODEX, GRACE, MIDNIGHT, SAGE, SPENDOR, VALOR},
+        "DOMAIN_CARD_TYPE_ENUM":    {UNKNOWN, SPELL, ABILITY},
+        "CONDITION_ENUM":       {UNKNOWN, VULNERABLE, },
+        "RANGE_ENUM":           {UNKNOWN, MELEE, VERY_CLOSE, CLOSE, FAR, VERY_FAR},
+        "ABILITY_SCORE_ENUM":   {UNKNOWN, AGILITY, STRENGTH, PERCISION, INTUITION, PRESENCE, KNOWLEDGE},
+        "DIE_TYPE_ENUM":        {UNKNOWN, d2,d3,d4,d5,d6,d7,d8,d9,d10,d12,d20,d100},
+        "GOLD_TYPE_ENUM":       {UNKNOWN, COINS, HANDFULS, BAGS, CHESTS},
+        "EQUIP_LOC_ENUM":       {UNKNOWN, HELD, WORN, STOWED}
+    },
+
+    "Actor": {
+        "types" : ["character", "npc", "environment", "gm", "party"],
+        "templates" : {
+            "commonTemplate": {
+                "level":               0,
+                "name":                "",
+                "numActions":          0,
+                "numAppliedEffects":   0
+            },
+            "abilityScores": {
+                "agility":          0,
+                "strength":         0,
+                "precision":        0,
+                "intuition":        0,
+                "presence":         0,
+                "knowledge":        0
+            },
+            "offsense": {
+                "maxStress":        6,
+                "maxHope":          6,
+                "currentStress":    0,
+                "currentHope":      2,
+                "proficency":       0
+            },
+            "hp": {
+                "minorThreshold":   1,
+                "majorThreshold":   5,
+                "severeThreshold":  10,
+                "maxHP":            6,
+                "currentHP":        6    
+            },
+            "defense": {
+                "evasion":              0,
+                "maxArmorSlots":        6,
+                "currentArmorSlots":    6
+
+            },
+            "domainCards": {
+                "numCardsInVault": 0,
+                "numCardsInHand":  0,
+                "maxCardsInHand":  5,
+                "cardIDs": [/*Card Item ID ary*/]
+            },
+            "conditions": {
+                "hasAdvantage":    false,
+                "hasDisadvantage": false,
+                "isVulnerable":    false
+            },
+            "experience": {
+                "bonusDescription":     0,
+                "bonusValue":           0
+            },
+            "connection": {
+                "question":        "",
+                "answer":           ""
+            },
+            "background": {
+                "question":        "",
+                "answer":           ""
+            },
+            "wealth": {
+                "numGoldCoins":            0,
+                "numGoldHandfulls":     0,
+                "numGoldBags":                           0,
+                "numGoldChests":          0
+            },
+            "domains":{
+                "base1":        0,
+                "base2":        0,
+                "multi1":       0,
+                "multi2":       0
+            },
+            "class": {
+                "baseClass":        0/*enum*/,
+                "multiClass":       0/*enum*/,
+                "isMulticlassed":   false,
+                "subClass":         0 /*enum*/
+            },
+            "inventory": {
+                            "numOfWeapons": 0,
+                            "numOfItems": 0,
+                            "wepIDs":          [],
+                            "itemIDs":          [],
+            }
+        }, /*end templates*/
+        "character": {
+            "templates": ["commonTemplate","<OtherTemplate>"],
+            /* Generic PC Character Info */
+            "class":                   "/*Enum (Seriph, Warrier, etc) */",
+            "multiclass":          "/*Enum (Seriph, Warrier, etc) */",
+            "domains":            [/*Enums (Bone, Blade, etc)*/],
+            "name":                 "",
+            "pronouns":          "",
+            "heritage":            "",
+            "subclass":             "",
+            "level":                  1,
+            "abilityScores": {
+                "agility":      0,
+                "strength":     0,
+                "precision":    0,
+                "intuition":    0,
+                "presence":     0,
+                "knowledge":    0
+            },
+            /* Offensive */
+            "MaxStress":         6,
+            "CurrentStress":   0,
+            "ActorMaxHope":               6,
+            "CurrentHope":    2,
+
+            /* Defense */
+            MinorThreshold:             1,
+
+            MajorThreshold:             5,
+
+            SevereThreshold:            10,
+
+            MaxHP:                                            6,
+
+            CurrentHP:                       6,
+
+            Evasion:                            0,
+
+            ActorMaxArmorSlots:    6,
+
+            CurrentArmorSlots:        6,
+
+
+
+            /* Domain Card Info */
+
+            MaxCardsInVault:           100,
+
+            CurrentCardsInVault:     0,
+
+            MaxCardsInHand:           5,
+
+            CurrentCardsInHand:     2,
+
+            DomainCardList:              [/*Domain Card Item ID's (#1adklfhl2, #fler9783hjfh7, etc)*/]
+
+
+
+            /* Conditions & Effects */
+
+            Conditions:                                     [/*Enums (vulnerable, confused, etc)*/],
+
+            Effects:                              [/*Item ID's (#1adklfhl2, #fler9783hjfh7, etc)*/],
+
+            OutboundHasAdvantage:                           false,
+
+            OutboundHasDisadvantage:       false,
+
+            InboundHasAdvantage:                false,
+
+            InboundHasDisadvantage:           false,
+
+
+
+            /* Experiences + BG + CONNECTIONS */
+
+            ExperienceBonuses:                      [/*int*/],
+
+            ExperienceDescriptions:              [/*String*/],
+
+            BackgroundQA:                             [/*String*/],
+
+            ConnectionQA:                              [/*String*/],
+
+
+
+            /* Weapon & Attack Info */
+
+            Proficency:                       1,
+
+            PrimaryWeaponID:         "",
+
+            SecondaryWeaponID:    "",
+
+
+
+            /* Wealth Info */
+
+            CurrentGoldCoins:          0,
+
+            CurrentGoldHandfuls:    0,
+
+            CurrentGoldBags:           0,
+
+            CurrentGoldChests:        0,
+
+                   },/*end character*/
+
+
+
+                   "npc": {
+
+                                 /* Generic NPC Info */
+
+                                 Level:    0,
+
+                                 Agility: 0,
+
+                                 Strength:            0,
+
+                                 Precision:           0,
+
+                                 Intuition:            0,
+
+                                 Presence:           0
+
+                                 Knowledge:        0,
+
+
+
+                                 /* Defensive Info */
+
+                                 MinorThreshold:             1,
+
+                                 MajorThreshold:             5,
+
+                                 SevereThreshold:            10,
+
+                                 MaxHP:                                            5,
+
+                                 CurrentHP:                       5,
+
+                                 MaxStress:                        5,
+
+                                 CurrentStress:                  5,
+
+                                 Difficulty:                          10,
+
+
+
+                                 /* Condition and Effect Info */
+
+                                 OutboundHasAdvantage:                           false,
+
+                                 OutboundHasDisadvantage:       false
+
+                   }, /*end npc*/
+
+
+
+                   "environment": {
+
+                   },  /*end environment*/
+
+
+
+                   "gm": {
+
+                                 "numFear": 0,
+
+                                 "numActionTokens": 0
+
+                   }, /*end gm*/
+
+                  
+
+    },/*end actor*/
+
+    "Item": {
+
+                   "types": ["armor","weapon","domainCard","item","effect","Action"],
+
+                   "templates": {
+
+                                 "equipment": {
+
+                                                "numHandsUsed":         0,
+
+                                                "equipedLocation": 0 /*location equipped enum (held, worn stowed, etc)*/
+
+                                 },
+
+                                 "magic": {
+
+                                                "isMagical":       false,
+
+                                                "isAttuned":       false,
+
+                                                "needsAttunement": false,
+
+                                 },
+
+                                 "price": {
+
+                                                "numCoins":      0,
+
+                                                "numHandfuls":              0,
+
+                                                "numBags":       0,
+
+                                                "numChests":    0
+
+                                 },
+
+                   }, /*end templates*/
+
+                   "armor":{
+
+                                 "templates":[<template/we/want>]
+
+                   },
+
+    }/*end item*/
+
+   
+
+    "Armor" : {
+
+                   Name: "",
+
+                   Description: "",
+
+                   Level: "",
+
+                   IsEquiped: false,
+
+                   ArmorScoreModifer: 0,  /* How much do we adjust the PC's Armor Score by */
+
+                   AbilityScoresModified: [/* Enums of what scores are adjusted most */],
+
+                   AbilityScoreModifiers: [/* Int's for value of each adjustment */],
+
+                   MaxArmorSlotsModifier:             0, /* Total Armor slot count is part of ACTOR, Some armors may adjust this in the future */      
+
+                   CurrentArmorSlots:        6, /* Spent armor slots are associated to the ARMOR not ACTOR */
+
+    },
+
+    "Weapon" : {
+
+                   Level:                  0,
+
+                   CostNumber:     /*Int*/,
+
+                   CostType:           /*Gold Type Enum*/,
+
+                   Range:                 /*Enum (melee, veryClose, close, etc)*/,
+
+                   AssociatedAbilityScore: /*Enum (Agility, Strength, etc)*/,
+
+                   BaseDamageDie:             /*Enum (d2, d3, d4, d5, etc)*/,
+
+                   AdditionalFlatDamage:                 0,
+
+                   Proficency:         1,
+
+                   HandsRequired:              1,
+
+                   IsCritical:            false,
+
+    },
+
+    "DomainCard" : {
+
+                   CardType:           0, /*Enum (Spell, Ability, etc)*/,
+
+                   StressCost:         0,
+
+                   CardName:         "",
+
+                   CardDescription: "",
+
+                   Level:                  0,
+
+                   Domains:            [/*Domain Enums (Bone, Blade, etc)*/]
+
+    },
+
+    "Item" : {
+
+                   Level:                  0,
+
+                   Name:                 "",
+
+                   Description:       "",
+
+                  
+
+    },
+
+    "Effect" : {
+
+                  
+
+    },
+
+    "Action" : {
+
+                   Name: "",
+
+                   Description: "",
+
+                   ActionCost: 0,
+
+    }
+
+}

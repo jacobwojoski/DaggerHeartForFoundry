@@ -1,30 +1,58 @@
 {
     "Actor": {
-        "types": ["character", "npc"],
+        "types": ["character", "npc", "party"],
+        
         "templates": {
             "base": {
+                "name": "",
                 "health": {
                     "value": 6,
                     "min": 0,
-                    "max": 6
+                    "max": 6,
+                    "minorThreshold":   1,
+                    "majorThreshold":   5,
+                    "severeThreshold":  10
                 },
-                "hope": {
-                    "value": 0,
-                    "min": 0,
-                    "max": 5
+                "stress": {
+                    "value":    0,
+                    "min":      0,
+                    "max":      6
                 },
-                "biography": ""
-            }
+                "evasion":      0,
+                "biography":    ""
+            },
+            "hope": {
+                "value":    0,
+                "min":      0,
+                "max":      5
+            },
+            "abilityScores": {
+                "agility":          0,
+                "strength":         0,
+                "precision":        0,
+                "intuition":        0,
+                "presence":         0,
+                "knowledge":        0
+            },
+            "armor": {
+                "armorScore":   0,
+                "maxUses":      6,
+                "used":         0
+            },
+            "conditions": []
         },
         "character" : {
-            "templates": ["base"],
+            "templates": ["base","hope", "abilityScores", "armor", "conditions"],
             "attributes": {
-                "level" : { "value" : 1 }
+                "level" : { "value" : 1 },
+                "proficency":   0,
+                "numHandsUsed": 0
             },
             "abilities" : {}
         },
         "npc" : {
-            "templates": ["base"]
+            "templates": ["base"],
+            "abilities": {}
         }
     },
     "Item": {
@@ -34,13 +62,35 @@
             "domain", 
             "heritage",
             "spell",
-            "item"
+            "item",
+            "weapon",
+            "domainCard"
         ],
         "templates": {
             "itemDescription": {
-                "description": ""
+                "name":         "",
+                "description":  ""
+            },
+            "charges": {
+                "hasCharges": false,
+                "value":    0,
+                "max":      0,
+                "min":      0,
+                "recharge": "none",
+                "degradeToDust": false
+            },
+            "magic": {
+                "isMagical": false,
+                "requiresAttunement": false,
+                "isAttuned": false
+            },
+            "equipment": {
+                "isEquipable":  false,
+                "isEquipped":   false,
+                "equipedLocation":  0
             }
         },
+        
         "class": {"templates": ["itemDescription"]},
         "foundation": {"templates": ["itemDescription"]},
         "domain": {
@@ -50,27 +100,13 @@
         },
         "heritage": {"templates": ["itemDescription"]},
         "item": {
-            "templates": ["itemDescription"],
+            "templates": ["itemDescription", "charges", "magic"],
             "itemType": "none",
-            "value": 0,
-            "magic": {
-                "isMagical" :false,
-                "charges": {
-                    "hasCharges": false,
-                    "value": 0,
-                    "max": 0,
-                    "min": 0,
-                    "recharge": "none",
-                    "degradeToDust": false
-                },
-                "attunement" : {
-                    "requiresAttunement": false,
-                    "attuned": false
-                }
-            },            
+            "value": 0,            
             "equipment": {
                 "equipable" : false,
-                "isEquipped": false
+                "isEquipped": false,
+                ""
             },
             "weapon": {
                 "damage": 0,
