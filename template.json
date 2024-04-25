@@ -4,7 +4,6 @@
         
         "templates": {
             "base": {
-                "name": "",
                 "health": {
                     "value": 6,
                     "min": 0,
@@ -19,7 +18,7 @@
                     "max":      6
                 },
                 "evasion":      0,
-                "biography":    ""
+                "description":  ""
             },
             "hope": {
                 "value":    0,
@@ -33,11 +32,6 @@
                 "intuition":        0,
                 "presence":         0,
                 "knowledge":        0
-            },
-            "armor": {
-                "armorScore":   0,
-                "maxUses":      6,
-                "used":         0
             },
             "conditions": []
         },
@@ -58,13 +52,20 @@
     "Item": {
         "types": [
             "class",
-            "foundation", 
-            "domain", 
+            "subclass",
+            "foundation",  
             "heritage",
+            
+            "domain",
+            "domainCard",
+            "experience",
+
             "spell",
+
             "item",
-            "weapon",
-            "domainCard"
+            "consumable",
+            "armor",
+            "weapon"
         ],
         "templates": {
             "itemDescription": {
@@ -90,33 +91,49 @@
                 "equipedLocation":  0
             }
         },
-
-        "class": {"templates": ["itemDescription"]},
-        "foundation": {"templates": ["itemDescription"]},
+        "class": {
+            "templates": ["itemDescription"]
+        },
+        "subclass": {
+            "description": "",
+            "domains":[]
+        },
+        "foundation": {
+            "name": "",
+            "descrption": ""
+        },
+        "heritage":{
+            "name": "",
+            "description": ""
+        },
         "domain": {
             "templates": ["itemDescription"],
             "domain": "",
             "type": ""
         },
-        "heritage": {"templates": ["itemDescription"]},
+        "domainCard": {
+            "templates": ["itemDescription"]
+        },
+        "experience": {
+            "templates": ["itemDescription"]
+        },
+        "spell": {
+            "templates": ["itemDescription"]
+        },
         "item": {
-            "templates": ["itemDescription", "charges", "magic"],
-            "itemType": "none",
-            "value": 0,            
-            "equipment": {
-                "equipable" : false,
-                "isEquipped": false
-            },
-            "weapon": {
-                "damage": 0,
-                "range": "dh.range.melee"
-            },
-            "armor": {
-                "damageReduction": 0
-            },
-            "consumable": {
-                "uses": 0
-            }
+            "templates": ["itemDescription"]
+        },
+        "consumable": {
+            "templates": ["itemDescription"]
+        },
+        "armor": {
+            "armorScore":   0,
+            "maxUses":      6,
+            "used":         0
+        },
+        "weapon": {
+            "baseDie": 0,
+            "range": "dh.range.melee"
         }
     }
 }
