@@ -46,7 +46,12 @@
         },
         "npc" : {
             "templates": ["base"],
+            "attackBonus": 0,
             "abilities": {}
+        },
+        "party": {
+            "templates": ["wealth"],
+            "pcs": []
         }
     },
     "Item": {
