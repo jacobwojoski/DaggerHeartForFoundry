@@ -90,7 +90,7 @@
                 "equipedLocation":  0
             }
         },
-        
+
         "class": {"templates": ["itemDescription"]},
         "foundation": {"templates": ["itemDescription"]},
         "domain": {
@@ -105,8 +105,7 @@
             "value": 0,            
             "equipment": {
                 "equipable" : false,
-                "isEquipped": false,
-                ""
+                "isEquipped": false
             },
             "weapon": {
                 "damage": 0,
