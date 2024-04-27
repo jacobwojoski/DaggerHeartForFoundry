@@ -1,57 +1,54 @@
 {
     "Actor": {
         "types": ["character", "npc", "party"],
-        
         "templates": {
             "base": {
                 "health": {
                     "value": 6,
                     "min": 0,
-                    "max": 6,
-                    "minorThreshold":   1,
-                    "majorThreshold":   5,
-                    "severeThreshold":  10
+                    "max": 6
+                },
+                "thresholds": {
+                    "minor": 1,
+                    "major": 5,
+                    "severe": 10
                 },
                 "stress": {
-                    "value":    0,
-                    "min":      0,
-                    "max":      6
+                    "value": 0,
+                    "min": 0,
+                    "max": 6
                 },
-                "evasion":      0,
-                "description":  ""
+                "evasion": 0,
+                "description": ""
             },
             "hope": {
-                "value":    0,
-                "min":      0,
-                "max":      5
+                "value": 0,
+                "min": 0,
+                "max": 5
             },
             "abilityScores": {
-                "agility":          0,
-                "strength":         0,
-                "precision":        0,
-                "intuition":        0,
-                "presence":         0,
-                "knowledge":        0
-            },
-            "conditions": []
+                "agility": 0,
+                "strength": 0,
+                "precision": 0,
+                "intuition": 0,
+                "presence": 0,
+                "knowledge": 0
+            }
         },
         "character" : {
             "templates": ["base","hope", "abilityScores", "armor", "conditions"],
             "attributes": {
                 "level" : { "value" : 1 },
-                "proficency":   0,
+                "proficency": 0,
                 "numHandsUsed": 0
-            },
-            "abilities" : {}
+            }
         },
         "npc" : {
             "templates": ["base"],
-            "attackBonus": 0,
-            "abilities": {}
+            "attackBonus": 0
         },
         "party": {
-            "templates": ["wealth"],
-            "pcs": []
+            "templates": ["wealth"]
         }
     },
     "Item": {
@@ -60,13 +57,10 @@
             "subclass",
             "foundation",  
             "heritage",
-            
             "domain",
             "domainCard",
             "experience",
-
             "spell",
-
             "item",
             "consumable",
             "armor",
@@ -74,14 +68,14 @@
         ],
         "templates": {
             "itemDescription": {
-                "name":         "",
-                "description":  ""
+                "name": "",
+                "description": ""
             },
             "charges": {
                 "hasCharges": false,
-                "value":    0,
-                "max":      0,
-                "min":      0,
+                "value": 0,
+                "max": 0,
+                "min": 0,
                 "recharge": "none",
                 "degradeToDust": false
             },
@@ -91,9 +85,9 @@
                 "isAttuned": false
             },
             "equipment": {
-                "isEquipable":  false,
-                "isEquipped":   false,
-                "equipedLocation":  0
+                "isEquipable": false,
+                "isEquipped": false,
+                "equipedLocation": 0
             }
         },
         "class": {
@@ -101,7 +95,7 @@
         },
         "subclass": {
             "description": "",
-            "domains":[]
+            "domains": ["bone", "blade"]
         },
         "foundation": {
             "name": "",
@@ -132,13 +126,13 @@
             "templates": ["itemDescription"]
         },
         "armor": {
-            "armorScore":   0,
-            "maxUses":      6,
-            "used":         0
+            "armorScore": 0,
+            "maxUses": 6,
+            "used": 0
         },
         "weapon": {
-            "baseDie": 0,
-            "range": "dh.range.melee"
+            "damageDie": 0,
+            "range": ""
         }
     }
 }

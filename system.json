@@ -1,6 +1,8 @@
 {
     "name": "dh",
-    "title": "Dagger Heart",
+    "id": "dh",
+    "title": "Daggerheart",
+    "version": "1.0.0",
     "description": "Daggerheart is a D12-based table-top game system by Darrington Press, the creators of Critical Role and Vox Machina. It's a fantasy RGP designed for long-term campaign play and character progression.",
     "authors": [
         {
@@ -9,6 +11,7 @@
         },
         {
             "name": "Jacob Wojo",
+            "discord": "jacobwojo#6005",
             "url": "https://github.com/jacobwojoski/DaggerHeartForFoundry"
         }
     ],
@@ -17,22 +20,26 @@
         "verified": "11.315",
         "maximum": 11
     },
-    "esmodules": ["src/dh.js"],
+    "esmodules": [
+        "src/dh.js"
+    ],
     "styles": [
         "static/css/main.css"
     ],
     "packs": [
+
+    ],
+    "languages": [
         {
             "lang": "en",
             "name": "English",
-            "path": "static/lang/en.json"
+            "path": "static/lang/en.json",
+            "flags": {}
         }
-    ],
-    "languages": [
-
     ],
     "gridDistance": 5,
     "gridUnits": "ft",
-    "primateryTokenAttribute": "hit points",
-    "secondaryTokenAttribute": "hope"
+    "primateryTokenAttribute": "health",
+    "secondaryTokenAttribute": "hope",
+    "initiative": "1d6"
 }
